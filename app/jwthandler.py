@@ -7,7 +7,7 @@ def auth_required(f):
     @wraps(f)
     def decorated(*args, **kwargs):
         # try:
-            jwt_token = request.headers.get('Authorization')
+            jwt_token = request.headers.get('x-api-token')
             secret_key = current_app.config.get('SECRET_KEY')
 
             try:
